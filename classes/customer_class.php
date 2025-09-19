@@ -49,6 +49,35 @@ class customer_class extends db_connection
 
         return $this->db_query($sql);
     }
+
+    public function login_customer($customer_email, $customer_password)
+    {
+        $ndb   = new db_connection();
+        $email = mysqli_real_escape_string($ndb->db_conn(), $customer_email);
+        $password = mysqli_real_escape_string($ndb->db_conn(), $customer_password);
+
+        // Fetch customer by email
+        $sql = "SELECT * FROM `customer` WHERE `customer_email` = '$email' LIMIT 1";
+        $result = $this->db_fetch_one($sql);
+
+        if ($result) {
+            // Verify password
+            if (password_verify($password, $result['customer_pass'])) {
+                // Optionally start session here
+                $_SESSION['customer_id']   = $result['customer_id'];
+                $_SESSION['customer_name'] = $result['customer_name'];
+                $_SESSION['customer_email']= $result['customer_email'];
+                $_SESSION['user_role']     = $result['user_role'];
+
+                return "success"; 
+            } else {
+                return "invalid_password";
+            }
+        } else {
+            return "not_found"; // Email not in DB
+        }
+    }
+
 }
 
 	//--INSERT--//
