@@ -1,8 +1,8 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Register</title>
+  <title>Login</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -79,11 +79,26 @@
       margin-top: 12px;
       font-size: 14px;
     }
+
+    .link {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #007BFF;
+    }
+
+    .link a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    .link a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>Login User</h1>
+    <h1>Login</h1>
     <form id="loginForm">
       <label>Email:</label>
       <input type="email" name="email" required maxlength="150">
@@ -91,11 +106,15 @@
       <label>Password:</label>
       <input type="password" name="password" required minlength="6">
 
-      <button type="submit" id="registerBtn">Register</button>
-      <div id="loading" style="display:none;">Registering...</div>
+      <button type="submit" id="loginBtn">Login</button>
+      <div id="loading" style="display:none;">Logging in...</div>
       <div id="message"></div>
     </form>
+    <div class="link">
+      Don’t have an account? <a href="register.html">Register</a>
+    </div>
   </div>
 
+  <script src="../js/login.js"></script>
 </body>
 </html>
