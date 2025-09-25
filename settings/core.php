@@ -5,14 +5,14 @@ session_start();
 //for header redirection
 ob_start();
 
-//funtion to check for login
-
-
-//function to get user ID
-
+//function to check for login
+function isLoggedIn() {
+    return isset($_SESSION['user_id']);
+}
 
 //function to check for role (admin, customer, etc)
-
-
+function isAdmin() {
+    return (isset($_SESSION['role']) && $_SESSION['role'] === 'admin');
+}
 
 ?>
