@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start();
 require_once("../controllers/customer_controller.php"); // adjust path if needed
 
 header("Content-Type: application/json");
