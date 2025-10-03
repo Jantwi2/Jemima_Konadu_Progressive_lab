@@ -111,7 +111,7 @@
       <div id="message"></div>
     </form>
     <div class="link">
-      Don’t have an account? <a href="register.html">Register</a>
+      Don’t have an account? <a href="register.php">Register</a>
     </div>
   </div>
 
